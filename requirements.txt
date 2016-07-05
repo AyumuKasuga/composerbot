@@ -1,0 +1,2 @@
+telepot==8.1
+aiohttp==0.22.0a0
