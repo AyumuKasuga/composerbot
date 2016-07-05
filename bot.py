@@ -38,7 +38,7 @@ class ComposerBot(telepot.async.Bot):
                         self.loop.create_task(self.send_result(chat_id, content))
                         break
                     elif content.find('Composing...') != -1:
-                        print("wait {} {}".format(url, content))
+                        print("wait {}".format(url))
                     else:
                         print("error with url {}".format(url))
                         self.loop.create_task(self.sendMessage(chat_id, 'something went wrong with url {}'.format(url)))
