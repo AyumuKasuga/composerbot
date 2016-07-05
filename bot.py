@@ -28,7 +28,7 @@ class ComposerBot(telepot.async.Bot):
         url = urljoin(self.config['base_url'], location)
         print('start polling {}'.format(url))
         for _ in range(600):
-            asyncio.sleep(2)
+            await asyncio.sleep(2)
             print('checking url {}'.format(url))
             async with aiohttp.ClientSession(loop=self.loop) as client:
                 async with client.get(url) as resp:
