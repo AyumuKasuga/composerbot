@@ -26,6 +26,7 @@ class ComposerBot(telepot.async.Bot):
 
     async def status_poll(self, chat_id, location):
         url = urljoin(self.config['base_url'], location)
+        print('start poll {}'.format(url))
         for _ in range(600):
             asyncio.sleep(2)
             async with aiohttp.ClientSession(loop=self.loop) as client:
