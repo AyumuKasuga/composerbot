@@ -26,15 +26,19 @@ class ComposerBot(telepot.async.Bot):
 
     async def status_poll(self, chat_id, location):
         url = urljoin(self.config['base_url'], location)
-        print('start poll {}'.format(url))
+        print('start polling {}'.format(url))
         for _ in range(600):
             asyncio.sleep(2)
+            print('checking url {}'.format(url))
             async with aiohttp.ClientSession(loop=self.loop) as client:
                 async with client.get(url) as resp:
                     content = await resp.text()
                     if content.find('<audio') != -1:
+                        print("sending result {}".format(url))
                         self.loop.create_task(self.send_result(chat_id, content))
                         break
+                    else:
+                        print("wait {} {}".format(url, content))
 
     async def compose(self, chat_id):
         url = urljoin(self.config['base_url'], 'song/compose/')
