@@ -4,11 +4,11 @@ import asyncio
 from urllib.parse import urljoin
 
 import telepot
-import telepot.async
+import telepot.aio
 import aiohttp
 
 
-class ComposerBot(telepot.async.Bot):
+class ComposerBot(telepot.aio.Bot):
 
     def __init__(self, *args, config=None, **kwargs):
         super(ComposerBot, self).__init__(*args, **kwargs)
