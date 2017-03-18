@@ -1,1 +1,2 @@
+aiohttp==2.0.0rc1
 https://github.com/AyumuKasuga/telepot/archive/master.zip
